@@ -79,7 +79,8 @@ spring:
           predicates:
             - Path=/order-service/**
         - id: first-service
-          uri: lb://MY-FIRST-SERVICE
+          uri: http://localhost:8081/first-service/**
+#          uri: lb://MY-FIRST-SERVICE
           predicates:
             - Path=/first-service/**
           filters:
@@ -87,7 +88,8 @@ spring:
             - AddResponseHeader=first-response, first-response-header2
 #            - CustomFilter
         - id: second-service
-          uri: lb://MY-SECOND-SERVICE
+          uri: http://localhost:8082/second-service/**
+#          uri: lb://MY-SECOND-SERVICE
           predicates:
             - Path=/second-service/**
           filters:

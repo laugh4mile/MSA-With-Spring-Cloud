@@ -11,11 +11,11 @@ public class CustomizationPort implements WebServerFactoryCustomizer<Configurabl
 
     @Override
     public void customize(ConfigurableServletWebServerFactory server) {
-        Random random = new Random();
-        var port = random.ints(10000, 51000)
-                .findFirst()
-                .getAsInt();
-
-        server.setPort(port);
+//        Random random = new Random();
+//        var port = random.ints(10000, 51000)
+//                .findFirst()
+//                .getAsInt();
+//
+//        server.setPort(port);
     }
 }
