@@ -35,10 +35,14 @@ public class UserController {
     private Greeting greeting;
 
     @Autowired
-    public UserController(Environment env, UserService userService) {
+    public UserController(Environment env) {
         this.env = env;
-        this.userService = userService;
     }
+//    @Autowired
+//    public UserController(Environment env, UserService userService) {
+//        this.env = env;
+//        this.userService = userService;
+//    }
 
     @GetMapping("/health_check")
     @Timed(value="users.status", longTask = true)
