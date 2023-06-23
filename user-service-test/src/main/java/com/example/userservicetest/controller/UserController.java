@@ -40,4 +40,11 @@ public class UserController {
 
         return ResponseEntity.status(HttpStatus.CREATED).body(responseUser);
     }
+
+    @CrossOrigin(origins = "http://192.168.61.252:3000")
+    @PostMapping("/addTodos")
+    public int addTodos(){
+        System.out.println("들어 왔나~~");
+        return 1212121;
+    }
 }

@@ -1,15 +1,22 @@
 server:
   port: 8761
+  address: 192.168.61.252
 
 spring:
   application:
-    name: discoveryservice
-  cloud:
-    config:
-      uri: http://127.0.0.1:8888
-      name: ecommerce
+    name: DiscoveryService
+#  cloud:
+#    config:
+#      uri: http://192.168.61.252:8888
+#      name: ecommerce
 
 eureka:
   client:
     register-with-eureka: false
     fetch-registry: false
+#    register-with-eureka: true
+#    fetch-registry: true
+#  instance:
+#    prefer-ip-address: true
+#    ip-address: ${server.address}
+#    instance-id: ${server.address}:${server.port}
