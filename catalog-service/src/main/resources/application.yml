@@ -1,9 +1,11 @@
 server:
   port: 0
+  address: 192.168.61.252
 
 spring:
   application:
     name: catalog-service
+    instance_id: ${server.address}
   h2:
     console:
       enabled: true
@@ -24,11 +26,13 @@ spring:
 eureka:
   instance:
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+    ip-address: ${server.address}
+    prefer-ip-address: true
   client:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://127.0.0.1:8761/eureka
+      defaultZone: http://192.168.61.252:8761/eureka
 
 logging:
   level:

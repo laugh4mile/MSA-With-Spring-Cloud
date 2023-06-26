@@ -1,5 +1,6 @@
 package com.example.userservicetest.dto;
 
+import com.example.userservicetest.vo.ResponseOrder;
 import lombok.Data;
 
 import java.util.Date;
@@ -14,4 +15,6 @@ public class UserDto {
     private Date createdAt;
 
     private String encryptedPwd;
+
+    private List<ResponseOrder> orders;
 }

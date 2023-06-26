@@ -25,6 +25,6 @@ public class CatalogEntity implements Serializable {
     private Integer unitPrice;
 
     @Column(nullable = false, updatable = false, insertable = false)
-    @ColumnDefault(value = "CURRENT_TIMESTAMP")
+    @ColumnDefault(value = "CURRENT_TIMESTAMP") // h2 db에서 현재 시간을 갖고오는 함수를 호출함
     private Date createdAt;
 }

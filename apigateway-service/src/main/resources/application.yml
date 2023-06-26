@@ -6,7 +6,7 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://localhost:8761/eureka
+      defaultZone: http://192.168.61.252:8761/eureka
   instance:
     #  instance-id: ${spring.cloud.client.ip-address}:${spring.application.instance_id:${random.value}}
     instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
@@ -16,7 +16,8 @@ spring:
   application:
     name: apigateway-service
   rabbitmq:
-    host: 127.0.0.1
+#    host: 127.0.0.1
+    host: 192.168.61.252
     port: 5672
     username: guest
     password: guest
@@ -29,10 +30,10 @@ spring:
             preLogger: true
             postLogger: true
       routes:
-#        - id: user-service
-#          uri: lb://USER-SERVICE
-#          predicates:
-#            - Path=/user-service/**
+        - id: user-service-test
+          uri: lb://USER-SERVICE-TEST
+          predicates:
+            - Path=/user-service-test/**
         - id: user-service
           uri: lb://USER-SERVICE
           predicates:

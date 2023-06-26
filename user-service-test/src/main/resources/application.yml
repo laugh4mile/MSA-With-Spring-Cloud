@@ -1,0 +1,70 @@
+server:
+  port: 8081
+#  port: ${random.int(50000,50001)}
+  address: 192.168.61.252
+
+spring:
+  application:
+    name: user-service-test
+    instance_id: ${server.address}
+#  web:
+#    cors:
+#      allowed-origins: http://localhost:3000
+#      allowed-methods: GET,POST,PUT,DELETE
+#      allowed-headers: Content-Type,Authorization
+  #  zipkin:
+  #    base-url: http://127.0.0.1:9411
+  #    enabled: true
+  #  sleuth:
+  #    sampler:
+  #      probability: 1.0
+
+#  rabbitmq:
+#    host: 127.0.0.1
+#    port: 5672
+#    username: guest
+#    password: guest
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: true #???? ??
+      path: /h2-console # ??????? ??? ???? ?? ??
+  datasource:
+    driver-class-name: org.h2.Driver
+#    url: jdbc:h2:tcp://localhost/~/testdb
+#    url: jdbc:h2:~/testdb
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password:
+
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+    ip-address: ${server.address}
+    prefer-ip-address: true
+
+  #    prefer-ip-address: true
+  #    ip-address: ${server.address}
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://192.168.61.252:8761/eureka
+
+greeting:
+  message: Welcome to the Simple E-commerce.
+
+#logging:
+#  level:
+#    com.example.userservice.client: DEBUG
+#
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: refresh, health, beans, busrefresh, info, metrics, prometheus
+#
+#token:
+#  expiration_time: 86400000
+#  secret: user_token

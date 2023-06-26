@@ -12,8 +12,8 @@ spring:
 
 eureka:
   client:
-    register-with-eureka: false
-    fetch-registry: false
+    register-with-eureka: false # 나자신은 등록하지 않음
+    fetch-registry: false # 마이크로 서비스 인스턴스 목록을 로컬에 캐시할 것인지의 여부
 #    register-with-eureka: true
 #    fetch-registry: true
 #  instance:
